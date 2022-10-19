@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@kyvg/vue3-notification": "^2.4.1",
+    "@vueuse/core": "^9.3.1",
     "firebase": "^9.9.4",
     "register-service-worker": "^1.7.2",
     "uuid": "^9.0.0",
     "vue": "^3.2.38",
+    "vue-final-modal": "^3.4.4",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {

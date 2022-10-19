@@ -37,6 +37,10 @@ import { db } from '@/firebase'
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter, useRoute } from 'vue-router'
 import { notify } from "@kyvg/vue3-notification";
+import { useLocalStorage } from '@vueuse/core'
+
+const nameAdded = useLocalStorage('name', name).value
+
 const props = defineProps({
   id: {
     type: String ,
@@ -79,7 +83,7 @@ const updateItem = async () => {
     const updateItemData = doc(db, String(nameRoute), idItem);
     await updateDoc(updateItemData, itemValue.value);
     notify({
-        text: "شاطره يا بطة عدلتيها خلاص 🎉",
+        text: `شاطره يا ${nameAdded} ضفتيها خلاص 🎉`,
         type: "success"
     });
     // emit('closeEditForm')

@@ -6,9 +6,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
 html, body {
     font-family: 'Cairo', sans-serif;
+    
+}
+body{
+    /* background: url(../assets/cool-background.png) center center no-repeat ;
+    background-size: cover; */
 
 }
-
+.dark{
+    background: #252525;
+    color: #fff;
+}
+.dark label , .dark p , .dark div , .dark .modal-content{
+    color: #fff;
+    background: #252525;
+}
 h1{
     text-align: center;
     padding: 15px;

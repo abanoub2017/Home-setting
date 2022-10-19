@@ -38,3 +38,8 @@ npm run dev
 ```sh
 npm run build
 ```
+### To DEPLOY TO FIREBASE
+
+```sh
+firebase deploy
+```

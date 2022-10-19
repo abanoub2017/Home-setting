@@ -9,9 +9,22 @@
     "lib": ["ESNext", "DOM"],
     "target": "ESNext",
     "types": ["vite/client"],
+    "allowSyntheticDefaultImports":true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "removeComments": true,
+    "importHelpers": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "allowJs": true,
+    "strict": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
     // "exclude": ["src/sw.ts"]
   },
-
   "references": [
     {
       "path": "./tsconfig.config.json"

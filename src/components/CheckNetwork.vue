@@ -1,11 +1,11 @@
 <template>
   <div>
     <p>{{isOnline ? 'متصل بالشبكه' : 'غير متصل'}}</p>
-    <p>{{offlineAt}}</p>
+    <!-- <p>{{offlineAt}}</p>
     <p>{{downlink}}</p>
     <p>{{effectiveType}}</p>
-    <p>{{saveData}}</p>
-    <p>{{type}}</p>
+    <p>{{saveData}}</p> -->
+    <!-- <p>{{type}}</p> -->
   </div>
 </template>
     

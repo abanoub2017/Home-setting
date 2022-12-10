@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pre lang="json"
+    <!-- <pre lang="json"
       >{{
         JSON.stringify({
           coords: {
@@ -16,7 +16,7 @@
           error: error ? error.message : error,
         })
       }}
-    </pre>
+    </pre> -->
   </div>
 </template>
     

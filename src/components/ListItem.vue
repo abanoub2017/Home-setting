@@ -1,8 +1,8 @@
 <template>
 
     <!-- Filter by Date -->
-  <div class="filter">
-    .<div class="lg:w-[50%] m-auto">
+  <div class="filter my-3">
+    <div class="lg:w-[50%] m-auto">
         <h4>Filter By</h4>
     <button type="button"
         class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2"
@@ -29,8 +29,7 @@
         </h6>
     </div>
     <!-- List Items -->
-    <div
-        class="p-4 my-3 m-auto lg:w-[50%] md:w-auto bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="p-4 my-3 m-auto lg:w-[50%] md:w-auto bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
         <div class="flow-root" v-if="listItem">
             <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
                 <li v-for="item in listItem" :key="item.id" class="py-3 sm:py-4">
@@ -98,8 +97,6 @@ const GetAllData = async (filterName: any) => {
     const querySnapshot = await getDocs(col);
     listItem.value = []
     querySnapshot.forEach((doc) => {
-        console.log(doc.data());
-
         allPriceItem.value.push(doc.data().price);
         listItem.value.push({
             id: doc.id,
@@ -110,8 +107,6 @@ const GetAllData = async (filterName: any) => {
         })
     });
 }
-
-
 
 const RealTimeDate = (name: any) => {
     onSnapshot(collection(db, `${name}`), (querySnapshot) => {
@@ -140,29 +135,31 @@ const getTotalPriceForMonth = () => {
 }
 
 const getfinalClacFromMonth = (totalForMonth: any) => {
-
-    setTimeout(() => {
-        console.log(totalForMonth);
-        console.log(allPriceItem._rawValue.length);
-        if (allPriceItem._rawValue.length == 1) {
-            console.log(allPriceItem.value[0]);
-            getCalcPrice.value = allPriceItem.value[0]
-            return finalCalcFromMonth.value = totalForMonth - (allPriceItem.value[0]);
-        } else {
-            allPriceItem.value.reduce(function (previousValue: any, currentValue: any) {
-                return finalCalcFromMonth.value = totalForMonth - (previousValue + currentValue);
-            })
-        }
-    }, 1000)
+    if (allPriceItem._rawValue.length != 0) {        
+        setTimeout(() => {
+            if (allPriceItem._rawValue.length == 1) {
+                getCalcPrice.value = allPriceItem.value[0]
+                return finalCalcFromMonth.value = totalForMonth - (allPriceItem.value[0]);
+            } else {
+                let sumItem = allPriceItem.value.reduce(function (previousValue: any, currentValue: any) {
+                    return (previousValue + currentValue);
+                })
+                return finalCalcFromMonth.value = totalForMonth - sumItem
+            }
+        }, 1000)
+    }
 }
 
 const calcAllPriceItem = computed(() => {
-    setTimeout(() => {
+
+    if (allPriceItem.value != 0) {
+        setTimeout(() => {
         allPriceItem.value.reduce(function (previousValue: any, currentValue: any) {
             getCalcPrice.value = previousValue + currentValue
             return previousValue + currentValue;
         })
     }, 1000);
+    }
 
 })
 

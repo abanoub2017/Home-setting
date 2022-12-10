@@ -1,5 +1,4 @@
 <template>
-  <ListCategory/>
   <div class=" container mx-auto px-6">
     <h1>home facilities</h1>
       <FormAndList/>

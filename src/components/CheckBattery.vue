@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p>{{ charging ? 'بيشحن' : 'مش بيشحن' }}</p>
-    <p>{{ level *100 +'%'}} : نسبة الشحن </p>
+    <!-- <p>{{ charging ? 'بيشحن' : 'مش بيشحن' }}</p> -->
+    <p class="text-right"><span class="text-green">{{ level *100 +'%'}}</span> : نسبة الشحن </p>
     <!-- <UseBattery v-slot="{ charging }"> Is Charging: {{ charging }} </UseBattery> -->
   </div>
 </template>

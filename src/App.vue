@@ -1,10 +1,5 @@
 <template>
-  <Modal />
-  <Mod />
-  <CheckBattery/>
-  <CheckNetwork/>
-  <CheckOnline/>
-  <CheckLocation/>
+  <Header />
   <ReloadPWA />
   <router-view />
   <notifications position="bottom right" />
@@ -12,12 +7,7 @@
 
 <script setup lang="ts">
 import ReloadPWA from "./ReloadPWA.vue";
-import Modal from "./components/modal.vue";
-import Mod from "./components/Mod.vue";
-import CheckBattery from "./components/CheckBattery.vue";
-import CheckNetwork from "./components/CheckNetwork.vue";
-import CheckOnline from "./components/CheckOnline.vue";
-import CheckLocation from "./components/CheckLocation.vue";
+import Header from "./components/Header.vue";
 </script>
 
 <style scoped>
